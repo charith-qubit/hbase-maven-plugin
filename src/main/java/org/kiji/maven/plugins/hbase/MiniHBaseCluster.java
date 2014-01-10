@@ -100,7 +100,8 @@ public class MiniHBaseCluster extends MavenLogged {
       getConfiguration().set("hadoop.log.dir", getConfiguration().get("hadoop.tmp.dir"));
 
       // Start a mini MapReduce cluster with one server.
-      mTestUtil.startMiniMapReduceCluster(1);
+      //mTestUtil.startMiniMapReduceCluster(1);
+      mTestUtil.startMiniMapReduceCluster();
 
       // Set the mapred.working.dir so stuff like partition files get written somewhere reasonable.
       getConfiguration().set("mapred.working.dir",
@@ -157,6 +158,8 @@ public class MiniHBaseCluster extends MavenLogged {
 
     // Increase max zookeeper client connections.
     conf.setInt("hbase.zookeeper.property.maxClientCnxns", 80);
+
+    conf.setBoolean("hbase.replication",false);
 
     // TODO(gwu): Increasing the port numbers by a constant is not sufficient for multiple
     // executions of this plugin on the same machine.  Allow this to be specified as a

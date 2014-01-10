@@ -90,7 +90,8 @@ public class TestMiniHBaseCluster {
     mHBaseTestUtil.shutdownMiniCluster();
 
     // Expect that the MapReduce cluster will be started and stopped.
-    mHBaseTestUtil.startMiniMapReduceCluster(1);
+    expect(mHBaseTestUtil.startMiniMapReduceCluster()).andReturn(null);
+
 
     mHBaseTestUtil.shutdownMiniMapReduceCluster();
     // Expect the HBase testing utility to request a test dir for mapred.

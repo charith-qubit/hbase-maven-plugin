@@ -20,7 +20,7 @@
 
   <groupId>org.kiji.maven.plugins</groupId>
   <artifactId>hbase-maven-plugin</artifactId>
-  <version>1.0.11-cdh4-SNAPSHOT</version>
+  <version>1.0.11-hdp-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>hbase-maven-plugin</name>
@@ -47,10 +47,10 @@
     <maven.compiler.target>${java.version}</maven.compiler.target>
 
     <scm.connection>scm:git:ssh://git@github.com/kijiproject/hbase-maven-plugin.git</scm.connection>
-    <hadoop.version>2.0.0-mr1-cdh4.3.0</hadoop.version>
-    <hbase.version>0.94.6-cdh4.3.0</hbase.version>
-    <guava.version>11.0.2</guava.version>
-    <slf4j.version>1.6.1</slf4j.version>
+    <hadoop.version>2.2.0.2.0.6.0-76</hadoop.version>
+    <hbase.version>0.96.0.2.0.6.0-76-hadoop2</hbase.version>
+    <guava.version>14.0.1</guava.version>
+    <slf4j.version>1.7.5</slf4j.version>
   </properties>
 
   <build>
@@ -91,7 +91,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.8.2</version>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -100,13 +100,7 @@
       <version>${hadoop.version}</version>
       <scope>compile</scope>
     </dependency>
-    <!--<dependency>
-      <groupId>org.apache.hadoop</groupId>
-      <artifactId>hadoop-core</artifactId>
-      <version>${hadoop.version}</version>
-      <scope>compile</scope>
-    </dependency>-->
-    <dependency>
+   <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-minicluster</artifactId>
       <version>${hadoop.version}</version>
@@ -120,15 +114,9 @@
         </exclusion>
       </exclusions>
     </dependency>
-    <dependency>
-      <groupId>org.apache.hadoop</groupId>
-      <artifactId>hadoop-test</artifactId>
-      <version>${hadoop.version}</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
+   <dependency>
       <groupId>org.apache.hbase</groupId>
-      <artifactId>hbase</artifactId>
+      <artifactId>hbase-common</artifactId>
       <version>${hbase.version}</version>
       <scope>compile</scope>
       <exclusions>
@@ -144,10 +132,9 @@
     </dependency>
     <dependency>
       <groupId>org.apache.hbase</groupId>
-      <artifactId>hbase</artifactId>
+      <artifactId>hbase-testing-util</artifactId>
       <version>${hbase.version}</version>
       <scope>compile</scope>
-      <type>test-jar</type>
       <exclusions>
         <exclusion>
           <groupId>org.apache.hadoop</groupId>
@@ -183,13 +170,7 @@
       <version>2.2.1</version>
       <scope>compile</scope>
     </dependency>
-    <dependency>
-      <groupId>org.apache.thrift</groupId>
-      <artifactId>libthrift</artifactId>
-      <version>0.5.0-cdh</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
+   <dependency>
       <groupId>org.easymock</groupId>
       <artifactId>easymock</artifactId>
       <version>3.0</version>
