@@ -1,6 +1,7 @@
 This is an experimental fork for running HBase integration tests using Hortonworks Data Platform (HDP) artifacts.
-HBase Version: 0.96.0.2.0.6.0-76-hadoop2
-Hadoop Version: 2.2.0.2.0.6.0-76
+
+- HBase Version: 0.96.0.2.0.6.0-76-hadoop2
+- Hadoop Version: 2.2.0.2.0.6.0-76
 
 Original readme follows:
 
